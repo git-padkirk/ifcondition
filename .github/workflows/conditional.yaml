@@ -1,5 +1,5 @@
 name: Conditional-workflow
-on: [push]
+on: [workflow_dispatch]
 jobs:
   hello-world:
     if: ${{ github.repository == 'git-padkirk/ifcondition' }}
