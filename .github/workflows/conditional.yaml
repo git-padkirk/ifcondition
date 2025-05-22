@@ -2,7 +2,7 @@ name: Conditional-workflow
 on: [push]
 jobs:
   hello-world:
-    if: ${{ github.repository == 'git-padki/ifcondition' }}
+    if: ${{ github.repository == 'git-padkirk/ifcondition' }}
     runs-on: ubuntu-latest
     steps:
       - name: "Hello World"
