@@ -1,0 +1,14 @@
+name: Conditional-workflow
+on: [push]
+jobs:
+  hello-world:
+    if: github.repository == 'git-padki/ifcondition'
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Hello World"
+        run: echo "Hello World!"
+  goodbye-world:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Goodbye World'
+        run: echo "Goodbye World"
