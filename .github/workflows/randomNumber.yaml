@@ -1,5 +1,5 @@
 name: Random Number
-on: [push]
+on: [workflow_dispatch]
 jobs:
   random_number_generation:
     runs-on: ubuntu-latest
