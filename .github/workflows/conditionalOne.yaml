@@ -6,9 +6,9 @@ jobs:
     steps:
       - name: Identification Environment
         run: |
-          if ["${{ github.event_name }}" == "push"]; then
+          if [ "${{ github.event_name }}" == "push" ]; then
             echo 'Production'
-            echo "selected-stage=production" >> $GITHUB_OUTPUT
+            echo "selected-stage=production" >> "$GITHUB_OUTPUT"
           elif [ "${{ github.event_name }}" == "pull_request" ]; then
             echo "staging"
             echo "selected-stage=staging" >> "$GITHUB_OUTPUT"
