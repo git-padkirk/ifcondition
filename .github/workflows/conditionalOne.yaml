@@ -1,0 +1,18 @@
+name: Conditional One
+on: [push]
+jobs:
+  determine-environment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Identification Environment
+        run: |
+          if ["${{ github.event }}" == "push"]; then
+            echo 'Production'
+            echo "selected-stage=production" >> $GITHUB_OUTPUT
+          elif [ "${{ github.event_name }}" == "pull_request" ]; then
+            echo "staging"
+            echo "selected-stage=staging" >> "$GITHUB_OUTPUT"
+          else
+            echo "test"
+            echo "selected-stage=test" >> "$GITHUB_OUTPUT"
+          fi
