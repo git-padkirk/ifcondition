@@ -1,5 +1,5 @@
 name: Conditional One
-on: [push]
+on: [workflow_dispatch]
 jobs:
   determine-environment:
     runs-on: ubuntu-latest
