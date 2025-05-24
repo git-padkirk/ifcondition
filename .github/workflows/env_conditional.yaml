@@ -1,0 +1,21 @@
+name: Matrix Strategy
+on: [workflow_dispatch]
+jobs:
+  build:
+    strategy:
+      matrix:
+        node-version: [22, 23, 24]
+        operating-system: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.operating-system }}
+    steps:
+      - name: Get code
+        uses: actions/checkout@v4
+      - name: Install node
+        uses: actions/setup-node@v4
+        with:
+          runs-on: ${{ matrix.node-version }}
+      - name: Install dependencies
+        run: npm ci
+      - name: Build the system
+        run: npm run build
+  
