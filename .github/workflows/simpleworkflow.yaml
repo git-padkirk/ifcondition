@@ -1,0 +1,53 @@
+name: Test CI
+on:
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v4
+      - name: Install node
+        uses: action/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Run lintig
+        run: npm run lint
+  test:
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v4
+      - name: Install node
+        uses: action/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Run Tests
+        run: npm run test
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v4
+      - name: Install node
+        uses: action/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Run Tests
+        run: npm run build
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v4
+      - name: Install node
+        uses: action/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Run build
+        run: echo "Build initiated ..."
+    
