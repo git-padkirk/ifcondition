@@ -9,7 +9,7 @@ jobs:
       - name: Get the code
         uses: actions/checkout@v4
       - name: Load and Cache dependencies
-        uses: ./.github/actions/cached-deps
+        uses: ./actions/cached-deps
       - name: Lint code
         run: npm run lint
   test:
