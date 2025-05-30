@@ -12,9 +12,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-      - name: Install dependencies
-        run: npm ci
-      - name: Run lintig
+      - name: Load and Cache dependencies
+        uses: ./.github/actions/cached-deps
+      - name: Lint code
         run: npm run lint
   test:
     needs: lint
