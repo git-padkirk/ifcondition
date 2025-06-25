@@ -5,11 +5,24 @@ on:
       environment:
         description: 'Inputs regarding the environment'
         required: true
-        type: environment   
+        type: environment
+
+      notify:
+        description: 'Deployment notification'
+        required: true
+        type: boolean
+        default: false        
+      
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Deployed on ${{ github.event.inputs.environment }} environment"
+
+  notify:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.notify }}
+    steps:
+      - run: echo "Deployed to ${{ github.event.inputs.environment }}"
     
