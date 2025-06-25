@@ -5,8 +5,13 @@ on:
       environment:
         description: 'Inputs regarding the environment'
         required: true
-        type: string
         default: production
+        type: choice
+        options:
+          - production
+          - QA
+          - Staging
+          - Dev        
 
 jobs:
   deploy:
