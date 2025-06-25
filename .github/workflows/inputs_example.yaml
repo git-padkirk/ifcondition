@@ -1,0 +1,16 @@
+name: Inputs example
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Inputs regarding the environment'
+        required: true
+        type: string
+        default: production
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Deployed on"
+    
