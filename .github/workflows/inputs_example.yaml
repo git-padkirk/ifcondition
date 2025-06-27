@@ -5,7 +5,13 @@ on:
       environment:
         description: 'Inputs regarding the environment'
         required: true
-        type: environment
+        type: choice
+        options:
+          - production
+          - staging
+          - qa
+          - dev
+        default: production
 
       notify:
         description: 'Deployment notification'
